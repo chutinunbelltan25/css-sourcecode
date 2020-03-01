@@ -1,38 +1,123 @@
-.App {
+.container {
+  display: flex;
+  justify-content: center;
+}
+.container .box + .box {
+  background-color: black;
+}
+
+a[class^='color'] {
+  color: aqua;
+}
+
+.box {
+  width: 50vh;
+  height: 50vh;
+  background-color: blue;
+}
+
+.grid-container {
+  display: grid;
+  /* display: inline-grid; ทำให้มันเล็กลง*/
+  /* grid-gap: 50px 50px;  */
+  /* หรือ ใส่แคตำแน่งเดียวทั้ง rowcol จะห่างเท่ากัน  ทำให้ช่วงหระหว่าง row and col ห่างกันตามตำแหน่ง ไม่ร่วมคอบด้านนอกบนล่างซ้ายขวา ของgrid */
+  grid-row-gap: 50px; 
+  /* เฉพาะที่เปน row */
+  grid-column-gap: 50px;
+    /* เฉพาะที่เปน col */
+  grid-template-columns: auto auto auto;
+  /* ขึ้นอยู่ที่ value ว่าจะให้มีกี่แถวก็เพิ่ม autoหรืออะไรเข้าไปได้เลย */
+  background-color: #2196F3;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  padding: 20px;
+  font-size: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid-container2 {
+  display: grid;
+  /* justify-content: center; */ 
+  /* ใส่ได้ถ้าไม่มี การกำหนดrowที่แน่นอนลงไปแล้ว */
+  /* height: 400px;
+  กำหนดความสูงได้เลย
+  align-content: space-between; 
+  จะเปลี่ยนได้เหมือน justify */
+  grid-template-columns: 35% 30% 34%;
+  grid-template-rows: 90px 200px ;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-container2 > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.item3 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.item4 {
+  grid-column: 1 / span 2;
+}
+.item6 {
+  grid-column: 1 / 4;
+}
+.item7 > img {
+  object-fit: cover;
+  object-position: 100% 50%;
+  width: 50vh;
+  height: 50vh;
+}
+.item8 > img {
+  /* object-fit: contain; ภาพเต็มแต่จะอยู่ในขนาดที่กำหนด */
+  /* object-fit: cover; ภาพจะตัดบนล่างเอาตรงกลาง */
+  /* object-fit: fill; ภาพจะบีบตามขนาดที่กำหนด */
+  /* object-fit: none; กลางภาพตามขนาดที่กำหนด */
+  /* object-position: 100% 50%; ใช้เลื่อนบนล่าง อันอันซ้ายขวา*/
+  /* object-fit: scale-down; เต็มภาพ แต่จะอยู่ในขนาดที่กำหนดเหมือนกัน */
+  object-fit: contain;
+  width: 50vh; 
+  height: 50vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+/* @media only screen and (max-width: 2500px) {
+  img {
+    width: 50vh; 
+    height: 50vh;
+  }
+} */
+@media only screen and (min-width: 300px) {
+  .img1 {
+    padding: 10px;
+    width: 15vh;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
+
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
